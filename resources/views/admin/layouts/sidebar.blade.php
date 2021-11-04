@@ -13,6 +13,12 @@
           Products
         </a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link {{ Request::is('categories*') ? 'active' : '' }}" href="/categories">
+          <span data-feather="grid"></span>
+          Categories
+        </a>
+      </li>
     </ul>
 
     <h6 class="sidebar-heading d-flex justify-content-beetwen align-items-center px-3 mt-4 mb-1 text-muted">

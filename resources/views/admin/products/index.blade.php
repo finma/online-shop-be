@@ -8,7 +8,7 @@
   <a href="/products/create" class="btn btn-primary"><span data-feather="plus-square"></span> Create New Product</a>
 
   <div class="table-responsive mt-3">
-    <table class="table table-striped">
+    <table class="table table-bordered">
       <thead>
         <tr>
           <th scope="col">#</th>
