@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\PaymentController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 
@@ -36,3 +37,11 @@ Route::post('/categories/create', [CategoryController::class, 'store']);
 Route::get('/categories/{category:slug}/edit', [CategoryController::class, 'edit']);
 Route::put('/categories/{category:slug}', [CategoryController::class, 'update']);
 Route::delete('/categories/{category:slug}', [CategoryController::class, 'destroy']);
+
+Route::get('/payments', [PaymentController::class, 'index']);
+Route::get('/payments/create', [PaymentController::class, 'create']);
+Route::get('/payments/checkSlug', [PaymentController::class, 'checkSlug']);
+Route::post('/payments/create', [PaymentController::class, 'store']);
+Route::get('/payments/{payment:slug}/edit', [PaymentController::class, 'edit']);
+Route::put('/payments/{payment:slug}', [PaymentController::class, 'update']);
+Route::delete('/payments/{payment:slug}', [PaymentController::class, 'destroy']);

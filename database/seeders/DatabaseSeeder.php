@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\User;
 use App\Models\Product;
 use App\Models\Category;
+use App\Models\Payment;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -39,6 +40,22 @@ class DatabaseSeeder extends Seeder
     Category::create([
       'name' => 'sepatu',
       'slug' => 'sepatu'
+    ]);
+
+    Payment::create([
+      'name' => 'Firman Maulana',
+      'bank_name' => 'BRI',
+      'no_rekening' => '432178935728',
+      'slug' => '432178935728',
+      'type' => 'Tranfer'
+    ]);
+
+    Payment::create([
+      'name' => 'Salman',
+      'bank_name' => 'Mandiri',
+      'no_rekening' => '432163895728',
+      'slug' => '432163895728',
+      'type' => 'Tranfer'
     ]);
 
     Product::factory(5)->create();

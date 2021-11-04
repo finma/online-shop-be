@@ -19,6 +19,12 @@
           Categories
         </a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link {{ Request::is('payments*') ? 'active' : '' }}" href="/payments">
+          <span data-feather="credit-card"></span>
+          Payments
+        </a>
+      </li>
     </ul>
 
     <h6 class="sidebar-heading d-flex justify-content-beetwen align-items-center px-3 mt-4 mb-1 text-muted">
