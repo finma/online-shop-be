@@ -42,8 +42,6 @@ class ProductController extends Controller
    */
   public function store(Request $request)
   {
-    // return $request;
-
     $validatedData = $request->validate([
       'name' => 'required|max:255',
       'slug' => 'required|unique:products',
@@ -53,7 +51,6 @@ class ProductController extends Controller
       'category_id' => 'required',
       'description' => 'required'
     ]);
-
 
     $validatedData['image'] = $request->file('image')->store('product-image');
 
@@ -152,5 +149,24 @@ class ProductController extends Controller
     $slug = SlugService::createSlug(Product::class, 'slug', $request->name);
 
     return response()->json(['slug' => $slug]);
+  }
+
+  // PRODUCT API
+
+  public function indexAPI()
+  {
+    return response()->json([
+      'message' => 'Success get data products!',
+      'data' => Product::latest()->paginate(3)->withQueryString()
+    ]);
+  }
+
+
+  public function detail(Product $product)
+  {
+    return response()->json([
+      'message' => 'Success get detail product',
+      'data' => $product
+    ]);
   }
 }

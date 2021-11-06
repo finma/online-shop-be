@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Dashboard">
     <meta name="author" content="Firman Maulana">
-    <title>Finma Blog | Dashboard</title>
+    <title>Online Shop</title>
 
 
     <!-- Bootstrap core CSS -->

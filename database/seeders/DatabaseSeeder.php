@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Models\Product;
 use App\Models\Category;
 use App\Models\Payment;
+use App\Models\Transaction;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -59,5 +60,7 @@ class DatabaseSeeder extends Seeder
     ]);
 
     Product::factory(5)->create();
+
+    Transaction::factory(5)->create();
   }
 }

@@ -20,6 +20,14 @@ class PaymentController extends Controller
     ]);
   }
 
+  public function indexAPI()
+  {
+    return response()->json([
+      'message' => 'Success get payments!',
+      'data' => Payment::all()
+    ]);
+  }
+
   /**
    * Show the form for creating a new resource.
    *

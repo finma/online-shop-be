@@ -1,10 +1,11 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PaymentController;
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\TransactionController;
 
 
 /*
@@ -18,14 +19,17 @@ use App\Http\Controllers\ProductController;
 |
 */
 
+Route::get('/login', [LoginController::class, 'index'])->middleware('guest');
+Route::post('/login', [LoginController::class, 'authenticate']);
+Route::post('/logout', [LoginController::class, 'logout']);
 
 Route::get('/', function () {
     return view('admin.index');
 })->middleware('auth');
 
-Route::get('/login', [LoginController::class, 'index'])->middleware('guest');
-Route::post('/login', [LoginController::class, 'authenticate']);
-Route::post('/logout', [LoginController::class, 'logout']);
+Route::resource('/transactions', TransactionController::class);
+Route::post('/transactions/{transaction:slug}/reject', [TransactionController::class, 'reject']);
+Route::post('/transactions/{transaction:slug}/accept', [TransactionController::class, 'accept']);
 
 Route::get('/products', [ProductController::class, 'index'])->middleware('auth');
 Route::get('/products/create', [ProductController::class, 'create'])->middleware('auth');
