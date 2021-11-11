@@ -17,10 +17,9 @@ class CreateTransactionsTable extends Migration
             $table->id();
             $table->foreignId('product_id');
             $table->foreignId('payment_id');
-            $table->string('slug');
+            $table->foreignId('customer_id');
             $table->integer('total_item');
             $table->mediumInteger('total_price');
-            $table->string('customer');
             $table->string('status')->default('pending');
             $table->timestamps();
         });

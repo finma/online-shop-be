@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Transaction;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class TransactionController extends Controller
 {
@@ -17,7 +18,7 @@ class TransactionController extends Controller
     // return Transaction::all();
     // dd(Transaction::all());
     return view('admin.transactions.index', [
-      'transactions' => Transaction::latest()->get()
+      'transactions' => Transaction::with(['product', 'payment', 'customer'])->latest()->get()
     ]);
   }
 
@@ -39,21 +40,33 @@ class TransactionController extends Controller
    */
   public function store(Request $request)
   {
+    $user = $request->user();
+
+    if (!$user->name) {
+      return response()->json([
+        'error' => true,
+        'message' => 'Not login'
+      ]);
+    }
+
+    // return response()->json(['user' => $user]);
 
     $transaction = Transaction::create([
       'product_id' => $request->product_id,
       'payment_id' => $request->payment_id,
-      'slug' => $request->slug,
       'total_item' => $request->total_item,
       'total_price' => $request->total_price,
-      'customer' => $request->customer,
+      'customer' => $user->name,
     ]);
 
-    // $transaction->save();
+    // // $transaction->save();
 
     return response()->json([
       'message' => 'Success create new transaction',
-      'data' => $transaction
+      'data' => [
+        'transaction' => $transaction,
+        'customer' => $user
+      ]
     ]);
   }
 
@@ -122,11 +135,14 @@ class TransactionController extends Controller
 
   // API TRANSACTION
 
-  public function indexAPI()
+  public function indexAPI(Request $request)
   {
+    $user = $request->user();
+
     return response()->json([
       'message' => 'Success get transactions by user id',
-      'data' => Transaction::all()
+      'data' => Transaction::where('customer_id', $user->id)->with('product', 'payment')->latest()->get()
+      // 'user' => $user
     ]);
   }
 

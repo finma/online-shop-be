@@ -6,6 +6,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\TransactionController;
+use App\Http\Controllers\CustomerController;
 
 
 /*
@@ -27,9 +28,9 @@ Route::get('/', function () {
     return view('admin.index');
 })->middleware('auth');
 
-Route::resource('/transactions', TransactionController::class);
-Route::post('/transactions/{transaction:slug}/reject', [TransactionController::class, 'reject']);
-Route::post('/transactions/{transaction:slug}/accept', [TransactionController::class, 'accept']);
+Route::get('/transactions', [TransactionController::class, 'index']);
+Route::post('/transactions/{transaction}/reject', [TransactionController::class, 'reject']);
+Route::post('/transactions/{transaction}/accept', [TransactionController::class, 'accept']);
 
 Route::get('/products', [ProductController::class, 'index'])->middleware('auth');
 Route::get('/products/create', [ProductController::class, 'create'])->middleware('auth');
@@ -55,3 +56,5 @@ Route::post('/payments/create', [PaymentController::class, 'store'])->middleware
 Route::get('/payments/{payment:slug}/edit', [PaymentController::class, 'edit'])->middleware('auth');
 Route::put('/payments/{payment:slug}', [PaymentController::class, 'update'])->middleware('auth');
 Route::delete('/payments/{payment:slug}', [PaymentController::class, 'destroy'])->middleware('auth');
+
+Route::get('/customers', [CustomerController::class, 'index']);

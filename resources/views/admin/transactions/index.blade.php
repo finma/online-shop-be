@@ -27,7 +27,7 @@
             <td>{{ $transaction->product->category->name }}</ td>
             <td>{{ $transaction->total_item }}</td>
             <td>{{ $transaction->total_price }}</td>
-            <td>{{ $transaction->customer }}</td>
+            <td>{{ $transaction->customer->name }}</td>
             <td>
               @if ($transaction->status === 'pending')
                   <div class="badge bg-warning">Pending</div>
@@ -38,7 +38,7 @@
               @endif
             </td>
             <td>
-              <form action="/transactions/{{ $transaction->slug }}/reject" method="POST" class="d-inline" onclick="confirm('Reject?')">
+              <form action="/transactions/{{ $transaction->id }}/reject" method="POST" class="d-inline" onclick="confirm('Reject?')">
                 @csrf
                 <button type="submit"class="btn btn-danger border-0 " 
                 @if ($transaction->status !== 'pending')
@@ -47,7 +47,7 @@
                   <span data-feather="x"></span> Reject
                 </button>
               </form>
-              <form action="/transactions/{{ $transaction->slug }}/accept" method="POST" class="d-inline" onclick="confirm('Accept?')">
+              <form action="/transactions/{{ $transaction->id }}/accept" method="POST" class="d-inline" onclick="confirm('Accept?')">
                 @csrf
                 <button type="submit"class="btn btn-success border-0 " 
                 @if ($transaction->status !== 'pending')

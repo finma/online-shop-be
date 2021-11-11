@@ -114,4 +114,14 @@ class CategoryController extends Controller
 
     return response()->json(['slug' => $slug]);
   }
+
+  // API
+
+  public function indexAPI()
+  {
+    return response()->json([
+      'message' => 'Success get categories',
+      'data' => Category::all()
+    ]);
+  }
 }

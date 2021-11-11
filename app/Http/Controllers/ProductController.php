@@ -18,7 +18,7 @@ class ProductController extends Controller
   public function index()
   {
     return view('admin.products.index', [
-      'products' => Product::all()
+      'products' => Product::with(['category'])->all()
     ]);
   }
 
@@ -157,16 +157,17 @@ class ProductController extends Controller
   {
     return response()->json([
       'message' => 'Success get data products!',
-      'data' => Product::latest()->paginate(3)->withQueryString()
+      'data' => Product::with(['category'])->latest()->filters(request(['category']))->paginate(12)->withQueryString()
     ]);
   }
 
 
   public function detail(Product $product)
   {
+    $detailProduct = Product::with('category')->find($product->id);
     return response()->json([
       'message' => 'Success get detail product',
-      'data' => $product
+      'data' => $detailProduct
     ]);
   }
 }

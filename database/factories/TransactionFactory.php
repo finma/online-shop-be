@@ -16,10 +16,9 @@ class TransactionFactory extends Factory
         return [
             'product_id' => mt_rand(1, 5),
             'payment_id' => mt_rand(1, 2),
-            'slug' => $this->faker->slug(),
+            'customer_id' => mt_rand(1, 2),
             'total_item' => mt_rand(1, 5),
             'total_price' => mt_rand(50000, 200000),
-            'customer' => 'Firman Maulana'
         ];
     }
 }

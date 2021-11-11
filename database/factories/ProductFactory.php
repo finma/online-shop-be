@@ -19,7 +19,8 @@ class ProductFactory extends Factory
             'description' => $this->faker->paragraph(),
             'stock' => mt_rand(10, 30),
             'price' => mt_rand(50000, 100000),
-            'category_id' => mt_rand(1, 3)
+            'category_id' => mt_rand(1, 3),
+            'image' => 'product-image/cM0XKbKCgO1j8w5WaVyzSSAdSS091YYMPfR9Sv6Q.png'
         ];
     }
 }

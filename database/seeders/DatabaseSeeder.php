@@ -3,9 +3,9 @@
 namespace Database\Seeders;
 
 use App\Models\User;
+use App\Models\Payment;
 use App\Models\Product;
 use App\Models\Category;
-use App\Models\Payment;
 use App\Models\Transaction;
 use Illuminate\Database\Seeder;
 
@@ -59,7 +59,7 @@ class DatabaseSeeder extends Seeder
       'type' => 'Tranfer'
     ]);
 
-    Product::factory(5)->create();
+    Product::factory(30)->create();
 
     Transaction::factory(5)->create();
   }
