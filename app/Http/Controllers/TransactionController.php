@@ -42,7 +42,7 @@ class TransactionController extends Controller
   {
     $user = $request->user();
 
-    if (!$user->name) {
+    if (!$user) {
       return response()->json([
         'error' => true,
         'message' => 'Not login'
@@ -54,9 +54,10 @@ class TransactionController extends Controller
     $transaction = Transaction::create([
       'product_id' => $request->product_id,
       'payment_id' => $request->payment_id,
+      'category_id' => $request->category_id,
       'total_item' => $request->total_item,
       'total_price' => $request->total_price,
-      'customer' => $user->name,
+      'customer_id' => $user->id,
     ]);
 
     // // $transaction->save();
@@ -141,7 +142,10 @@ class TransactionController extends Controller
 
     return response()->json([
       'message' => 'Success get transactions by user id',
-      'data' => Transaction::where('customer_id', $user->id)->with('product', 'payment')->latest()->get()
+      'data' => Transaction::where('customer_id', $user->id)
+        ->with('product', 'payment', 'category')
+        ->latest()
+        ->get()
       // 'user' => $user
     ]);
   }
