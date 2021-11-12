@@ -29,13 +29,14 @@ Route::post('/register', [RegisterController::class, 'store']);
 Route::post('/login', [CustomerController::class, 'login']);
 
 Route::group(['prefix' => 'auth', 'middleware' => ['auth:sanctum']], function () {
+    Route::get('/user', [CustomerController::class, 'userInfo']);
     Route::post('/logout', [CustomerController::class, 'logout']);
 });
 
 Route::group(['prefix' => 'checkout', 'middleware' => ['auth:sanctum']], function () {
     Route::get('/transactions', [TransactionController::class, 'indexAPI']);
     Route::post('/transactions', [TransactionController::class, 'store']);
-    Route::get('/transactions/{transaction:slug}/detail', [TransactionController::class, 'detail']);
+    Route::get('/transactions/{transaction}/detail', [TransactionController::class, 'detail']);
 });
 
 

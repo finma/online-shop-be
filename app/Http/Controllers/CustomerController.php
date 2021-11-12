@@ -151,4 +151,17 @@ class CustomerController extends Controller
     ];
     return response()->json($respon, 200);
   }
+
+  public function userInfo(Request $request)
+  {
+    $user = $request->user();
+
+    return response()->json([
+      'message' => 'Succes get user info',
+      'data' => [
+        'name' => $user->name,
+        'email' => $user->email
+      ]
+    ]);
+  }
 }

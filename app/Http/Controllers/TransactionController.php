@@ -154,7 +154,7 @@ class TransactionController extends Controller
   {
     return response()->json([
       'message' => 'Success get detail transaction!',
-      'data' => $transaction
+      'data' => $transaction->with('product', 'payment', 'category')->find($transaction->id)
     ]);
   }
 }
