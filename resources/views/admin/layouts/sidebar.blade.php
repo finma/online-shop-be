@@ -1,41 +1,44 @@
-<nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
-  <div class="position-sticky pt-3">
-    <ul class="nav flex-column">
+<nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-dark sidebar collapse">
+  <div class="position-sticky pt-3 px-2">
+
+    <h6 class="sidebar-heading d-flex justify-content-beetwen align-items-center px-3 mt-4 mb-2 text-muted">
+      <span>Administrator</span>
+    </h6>
+
+    <ul class="nav nav-pills flex-column mb-auto">
       <li class="nav-item">
-        <a class="nav-link {{ Request::is('/') ? 'active' : '' }}" aria-current="page" href="/">
-          <span data-feather="home"></span>
+        <a href="/" class="nav-link text-light {{ Request::is('/') ? 'active' : '' }}" aria-current="page">
+          <span data-feather="home" class="text-light"></span>
           Dashboard
         </a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link {{ Request::is('products*') ? 'active' : '' }}" href="/products">
-          <span data-feather="package"></span>
-          Products
+      <li>
+        <a href="/products" class="nav-link text-light {{ Request::is('products*') ? 'active' : '' }}">
+          <span data-feather="package" class="text-light"></span>
+          Produk
         </a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link {{ Request::is('categories*') ? 'active' : '' }}" href="/categories">
-          <span data-feather="grid"></span>
-          Categories
+      <li>
+        <a href="/categories" class="nav-link text-light {{ Request::is('categories*') ? 'active' : '' }}">
+          <span data-feather="grid" class="text-light"></span>
+          Kategori
         </a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link {{ Request::is('payments*') ? 'active' : '' }}" href="/payments">
-          <span data-feather="credit-card"></span>
-          Payments
+      <li>
+        <a href="/payments" class="nav-link text-light {{ Request::is('payments*') ? 'active' : '' }}">
+          <span data-feather="credit-card" class="text-light"></span>
+          Pembayaran
         </a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link {{ Request::is('transaction*') ? 'active' : '' }}" href="/transactions">
-          <span data-feather="shopping-cart"></span>
-          Transactions
+      <li>
+        <a href="/transactions" class="nav-link text-light {{ Request::is('transactions*') ? 'active' : '' }}">
+          <span data-feather="shopping-cart" class="text-light"></span>
+          Transaksi
         </a>
       </li>
     </ul>
 
-    <h6 class="sidebar-heading d-flex justify-content-beetwen align-items-center px-3 mt-4 mb-1 text-muted">
-      <span>Administrator</span>
-    </h6>
+    
     {{-- @can('admin')
       <ul class="nav flex-column">
         <li class="nav-item">
