@@ -170,4 +170,9 @@ class ProductController extends Controller
       'data' => $detailProduct
     ]);
   }
+
+  public function getImage(Request $request)
+  {
+    return response()->file(Storage::path("$request->image"));
+  }
 }
