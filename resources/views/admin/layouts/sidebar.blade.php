@@ -32,7 +32,7 @@
       </li>
       <li>
         <a href="/transactions" class="nav-link text-light {{ Request::is('transactions*') ? 'active' : '' }}">
-          <span data-feather="shopping-cart" class="text-light"></span>
+          <span data-feather="shopping-bag" class="text-light"></span>
           Transaksi
         </a>
       </li>

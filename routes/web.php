@@ -8,6 +8,11 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\CustomerController;
 
+use App\Models\Customer;
+use App\Models\Product;
+use App\Models\Transaction;
+use App\Models\Category;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -25,7 +30,12 @@ Route::post('/login', [LoginController::class, 'authenticate']);
 Route::post('/logout', [LoginController::class, 'logout']);
 
 Route::get('/', function () {
-    return view('admin.index');
+    return view('admin.index', [
+        'customers' => Customer::count(),
+        'products' => Product::count(),
+        'transactions' => Transaction::count(),
+        'categories' => Category::count(),
+    ]);
 })->middleware('auth');
 
 Route::get('/transactions', [TransactionController::class, 'index']);

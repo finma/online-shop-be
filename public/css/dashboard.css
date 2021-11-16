@@ -16,7 +16,7 @@ body {
     position: fixed;
     top: 0;
     /* rtl:raw:
-  right: 0;
+    right: 0;
   */
     bottom: 0;
     /* rtl:remove */
@@ -97,4 +97,69 @@ body {
 .form-control-dark:focus {
     border-color: transparent;
     box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.25);
+}
+
+/* CARDS */
+
+.card-counter {
+    box-shadow: 2px 2px 10px #dadada;
+    margin: 5px;
+    padding: 20px 10px;
+    background-color: #fff;
+    height: 100px;
+    border-radius: 5px;
+    transition: 0.3s linear all;
+    position: relative;
+    cursor: pointer;
+}
+
+.card-counter:hover {
+    box-shadow: 4px 4px 20px #dadada;
+    transition: 0.3s linear all;
+}
+
+.card-counter.primary {
+    background-color: #0d6efd;
+    color: #fff;
+}
+
+.card-counter.danger {
+    background-color: #dc3545;
+    color: #fff;
+}
+
+.card-counter.success {
+    background-color: #ffc107;
+    color: #fff;
+}
+
+.card-counter.info {
+    background-color: #0dcaf0;
+    color: #fff;
+}
+
+.card-counter .icon {
+    /* font-size: 10em; */
+    width: 5em;
+    height: 5em;
+    opacity: 0.2;
+}
+
+.card-counter .count-numbers {
+    position: absolute;
+    right: 35px;
+    top: 20px;
+    font-size: 32px;
+    display: block;
+}
+
+.card-counter .count-name {
+    position: absolute;
+    right: 35px;
+    top: 65px;
+    font-style: italic;
+    text-transform: capitalize;
+    opacity: 0.5;
+    display: block;
+    font-size: 18px;
 }

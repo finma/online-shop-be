@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Dashboard">
     <meta name="author" content="Firman Maulana">
-    <title>Online Shop</title>
+    <title>Zevanyastore</title>
 
 
     <!-- Bootstrap core CSS -->
@@ -18,6 +18,8 @@
     {{-- Trix Editor --}}
     <link rel="stylesheet" type="text/css" href="/css/trix.css">
     <script type="text/javascript" src="/js/trix.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
 
     <style>
       trix-toolbar [data-trix-button-group="file-tools"] {
@@ -49,7 +51,7 @@
   <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous"></script>
 
   <script src="/js/dashboard.js"></script>
-  
+
   <script src="/js/sidebar.js"></script>
 
   </body>
