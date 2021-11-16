@@ -8,7 +8,9 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
-    <title>Hello, world!</title>
+    <link href="/css/login.css" rel="stylesheet">
+
+    <title>Zevanyastore</title>
   </head>
   <body class="container">
       
@@ -31,37 +33,30 @@
           </div>
         @endif
 
-        <div class="text-center">
-          <i class="bi bi-person-fill fs-1"></i>
-        </div>
-        <h1 class="h3 mb-3 fw-normal text-center">Please Login</h1>
-        <form action="/login" method="POST">
-          @csrf
-          <div class="form-floating mb-3">
-            <input type="email" name="email" value="{{ old('email') }}" class="form-control @error('email') is-invalid @enderror" id="email" placeholder="name@example.com" required autofocus>
-            <label for="email">Email address</label>
-            @error('email')
-              <div class="invalid-feedback">
-                {{ $message }}  
-              </div>   
-            @enderror
-          </div>
-          <div class="form-floating mb-3">
-            <input type="password" name="password" class="form-control @error('password') is-invalid @enderror" id="password" placeholder="Password" required>
-            <label for="password">Password</label>
-            @error('password')
-              <div class="invalid-feedback">
-                {{ $message }}  
-              </div>   
-            @enderror
-          </div>
+        <div class="wrapper fadeInDown">
+          <div id="formContent">
+            <!-- Tabs Titles -->
 
-          <button class="w-100 btn btn-lg btn-primary" type="submit">Login</button>
-        </form>
-        <div class="mt-3 text-center">
-          <small >
-            <a href="/register">Don't have account?</a>
-          </small>
+            <!-- Icon -->
+            <div class="fadeIn first">
+              <h1 class="mt-5">Login</h1>
+            </div>
+
+            <!-- Login Form -->
+            <form action="/login" method="POST">
+              @csrf
+              <input type="email" id="email" class="fadeIn second" name="email" placeholder="login" value="{{ old('email') }}" required autofocus>
+              <input type="password" id="password" class="fadeIn third" name="password" placeholder="password" required>
+              {{-- <input type="submit" class="fadeIn fourth" value="Log In"> --}}
+              <button class="fadeIn fourth" type="submit">Login</button>
+            </form>
+
+            <!-- Remind Passowrd -->
+            <div id="formFooter">
+              <a class="underlineHover" href="#">Forgot Password?</a>
+            </div>
+
+          </div>
         </div>
       </main>
     </div>
