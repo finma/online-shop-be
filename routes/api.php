@@ -41,7 +41,7 @@ Route::group(['prefix' => 'checkout', 'middleware' => ['auth:sanctum']], functio
 
 
 Route::get('/products', [ProductController::class, 'indexAPI']);
-Route::get('/products', [ProductController::class, 'getImage']);
+// Route::get('/products', [ProductController::class, 'getImage']);
 Route::get('/products/{product:slug}/detail', [ProductController::class, 'detail']);
 
 Route::get('/categories', [CategoryController::class, 'indexAPI']);
