@@ -157,7 +157,7 @@ class ProductController extends Controller
   {
     return response()->json([
       'message' => 'Success get data products!',
-      'data' => Product::with(['category'])->filters(request(['category']))->paginate(12)->withQueryString()
+      'data' => Product::with(['category'])->filters(request(['category', 'search']))->paginate(12)->withQueryString()
     ]);
   }
 
